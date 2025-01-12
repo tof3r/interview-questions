@@ -38,5 +38,13 @@ public class Main {
         }
         boolean contains9AfterDeletion = sortedBinaryTree.containsNode(9);
         System.out.println("Tree contains 9: %s".formatted(contains9AfterDeletion));
+
+        System.out.println("\nTree is symmetric time: O(n) space: O(log(n))");
+        SortedBinaryTree tree = new SortedBinaryTree();
+        tree.add(5);
+        boolean symmetric = tree.isSymmetric(sortedBinaryTree.root);
+        System.out.println("Binary tree is symmetric: " + symmetric);
+        boolean symmetric1 = tree.isSymmetric(tree.root);
+        System.out.println("Binary tree with one node is symmetric: " + symmetric1);
     }
 }

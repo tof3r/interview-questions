@@ -8,9 +8,9 @@ public class BinarySearch {
             int middle = beginIndex + ((endIndex - beginIndex) / 2);
             if (sortedArray[middle] < key) {
                 beginIndex = middle + 1;
-            } else if(sortedArray[middle] > key){
+            } else if (sortedArray[middle] > key) {
                 endIndex = middle - 1;
-            } else if (sortedArray[middle] == key){
+            } else if (sortedArray[middle] == key) {
                 index = middle;
                 break;
             }
@@ -18,34 +18,32 @@ public class BinarySearch {
         return index;
     }
 
-    public static int searchRecursive(int[] sortedArray, int key, int beginIndex, int endIndex){
+    public static int searchRecursive(int[] sortedArray, int key, int beginIndex, int endIndex) {
         int middle = beginIndex + ((endIndex - beginIndex) / 2);
 
-        if (endIndex < beginIndex)
-        {
+        if (endIndex < beginIndex) {
             return -1;
         }
 
-        if (key == sortedArray[middle]){
+        if (key == sortedArray[middle]) {
             return middle;
-        } else if(key < sortedArray[middle]) {
+        } else if (key < sortedArray[middle]) {
             return searchRecursive(sortedArray, key, beginIndex, middle - 1);
         } else {
             return searchRecursive(sortedArray, key, middle + 1, endIndex);
         }
     }
 
-    public static boolean searchContains(int[] sortedArray, int key, int beginIndex, int endIndex){
+    public static boolean searchContains(int[] sortedArray, int key, int beginIndex, int endIndex) {
         int middle = beginIndex + ((endIndex - beginIndex) / 2);
 
-        if (endIndex < beginIndex)
-        {
+        if (endIndex < beginIndex) {
             return false;
         }
 
-        if (key == sortedArray[middle]){
+        if (key == sortedArray[middle]) {
             return true;
-        } else if(key < sortedArray[middle]) {
+        } else if (key < sortedArray[middle]) {
             return searchContains(sortedArray, key, beginIndex, middle - 1);
         } else {
             return searchContains(sortedArray, key, middle + 1, endIndex);

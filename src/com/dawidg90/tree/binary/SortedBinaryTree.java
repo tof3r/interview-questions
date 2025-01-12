@@ -156,4 +156,15 @@ public class SortedBinaryTree {
         if (node.left == null && node.right == null) return 1;
         return countLeavesRecursive(node.left) + countLeavesRecursive(node.right);
     }
+
+    public boolean isSymmetric(Node root) {
+        if (root == null) return true;
+        return areSymmetric(root.left, root.right);
+    }
+
+    private boolean areSymmetric(Node left, Node right) {
+        if (left == null && right == null) return true;
+        else if ((left == null) != (right == null) || left.value != right.value) return false;
+        else return areSymmetric(left.left, right.right) && areSymmetric(left.right, right.left);
+    }
 }
