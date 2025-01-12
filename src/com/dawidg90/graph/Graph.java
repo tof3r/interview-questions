@@ -1,6 +1,14 @@
 package com.dawidg90.graph;
 
-import java.util.*;
+import java.util.AbstractMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
+import java.util.Stack;
 
 public class Graph {
     private final Map<Vertex, List<Vertex>> adjacentVertices;
@@ -62,7 +70,7 @@ public class Graph {
         return graph;
     }
 
-    List<Vertex> getAdjacentVerticiesForVertex(String label) {
+    List<Vertex> getAdjacentVerticesForVertex(String label) {
         return adjacentVertices.get(new Vertex(label));
     }
 
@@ -74,7 +82,7 @@ public class Graph {
             String vertex = stack.pop();
             if (!visited.contains(vertex)) {
                 visited.add(vertex);
-                for (Vertex v : graph.getAdjacentVerticiesForVertex(vertex)) {
+                for (Vertex v : graph.getAdjacentVerticesForVertex(vertex)) {
                     stack.push(v.label);
                 }
             }
@@ -103,7 +111,7 @@ public class Graph {
         visited.add(root);
         while (!queue.isEmpty()) {
             String vertex = queue.poll();
-            for (Vertex v : graph.getAdjacentVerticiesForVertex(vertex)) {
+            for (Vertex v : graph.getAdjacentVerticesForVertex(vertex)) {
                 if (!visited.contains(v.label)) {
                     visited.add(v.label);
                     queue.add(v.label);
